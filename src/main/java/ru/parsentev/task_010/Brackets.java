@@ -22,8 +22,20 @@ public class Brackets {
     }
 
     public boolean isCorrect() {
-        UniqueChars brackets = new UniqueChars(line);
-        int result = brackets.unique();
-        return (result % 2 == 0);
+    	int open = 0;
+    	int close = 0;
+    	String[] values = line.split("");
+        for(String value: values) {
+        	if(value.equals("(")) {
+        		open++;
+        	}
+        	else {
+        		close++;
+        	}
+        }
+    	if(open == close) {
+    		return true;
+    	}
+        return false;
     }
 }

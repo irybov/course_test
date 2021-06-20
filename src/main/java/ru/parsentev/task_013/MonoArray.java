@@ -30,10 +30,10 @@ public class MonoArray {
         	else {
         		zero++;
         	}
-        	if(one > 0 & zero > 0) {
-        		return false;
-        	}
         }
+    	if(one > 0 & zero > 0) {
+    		return false;
+    	}
         return true;
     }
 }
