@@ -18,6 +18,9 @@ public class Triangle {
     protected final Point first;
     protected final Point second;
     protected final Point third;
+    
+    private double legX;
+    private double legY;
 
     public Triangle(final Point first, final Point second, final Point third) {
         this.first = first;
@@ -26,17 +29,33 @@ public class Triangle {
     }
 
     public boolean exists() {
+		setLegX(Math.abs(first.getX()-second.getX()-third.getX()));
+		setLegY(Math.abs(first.getY()-second.getY()-third.getY()));
         return ((first.getX()-second.getX()-third.getX())!=0
         		&& (first.getY()-second.getY()-third.getY())!=0);
     }
 
     public double area() {
     	if(exists()) {
-    		double legX = Math.abs(first.getX()-second.getX()-third.getX());
-    		double legY = Math.abs(first.getY()-second.getY()-third.getY());
-    		double triangleArea = (legX * legY) / 2;
+    		double triangleArea = (getLegX() * getLegY()) / 2;
     		return triangleArea;
     	}
         throw new java.lang.IllegalStateException();
     }
+
+	public double getLegX() {
+		return legX;
+	}
+
+	public void setLegX(double legX) {
+		this.legX = legX;
+	}
+
+	public double getLegY() {
+		return legY;
+	}
+
+	public void setLegY(double legY) {
+		this.legY = legY;
+	}
 }
