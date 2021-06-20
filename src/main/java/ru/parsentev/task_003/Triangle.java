@@ -26,10 +26,17 @@ public class Triangle {
     }
 
     public boolean exists() {
-        throw new UnsupportedOperationException();
+        return ((first.getX()-second.getX()-third.getX())!=0
+        		&& (first.getY()-second.getY()-third.getY())!=0);
     }
 
     public double area() {
-        throw new UnsupportedOperationException();
+    	if(exists()) {
+    		double legX = Math.abs(first.getX()-second.getX()-third.getX());
+    		double legY = Math.abs(first.getY()-second.getY()-third.getY());
+    		double triangleArea = (legX * legY) / 2;
+    		return triangleArea;
+    	}
+        throw new java.lang.IllegalStateException();
     }
 }

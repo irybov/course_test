@@ -21,6 +21,17 @@ public class Point {
     }
 
     public double distanceTo(final Point point) {
-        throw new UnsupportedOperationException();
+        double legX = Math.abs(point.x - x);
+        double legY = Math.abs(point.y - y);
+        double hypotenuse = Math.sqrt(Math.pow(legX, 2) + Math.pow(legY, 2));
+        return hypotenuse;
     }
+
+	public int getX() {
+		return x;
+	}
+
+	public int getY() {
+		return y;
+	}
 }
