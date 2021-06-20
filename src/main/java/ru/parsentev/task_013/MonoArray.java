@@ -21,6 +21,19 @@ public class MonoArray {
     }
 
     public boolean exists() {
-        throw new UnsupportedOperationException();
+    	int one = 0;
+    	int zero = 0;
+        for(int value: values) {
+        	if(value == 1) {
+        		one++;
+        	}
+        	else {
+        		zero++;
+        	}
+        	if(one > 0 & zero > 0) {
+        		return false;
+        	}
+        }
+        return true;
     }
 }
