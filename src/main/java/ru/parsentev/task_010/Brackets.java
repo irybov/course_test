@@ -2,6 +2,9 @@ package ru.parsentev.task_010;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import ru.parsentev.task_009.UniqueChars;
+
 import static org.slf4j.LoggerFactory.getLogger;
 
 /**
@@ -19,6 +22,8 @@ public class Brackets {
     }
 
     public boolean isCorrect() {
-        throw new UnsupportedOperationException();
+        UniqueChars brackets = new UniqueChars(line);
+        int result = brackets.unique();
+        return (result % 2 == 0);
     }
 }
