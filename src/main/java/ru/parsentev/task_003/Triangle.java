@@ -26,11 +26,11 @@ public class Triangle {
         this.first = first;
         this.second = second;
         this.third = third;
+		setLegX(Math.abs(first.getX()-second.getX()-third.getX()));
+		setLegY(Math.abs(first.getY()-second.getY()-third.getY()));
     }
 
     public boolean exists() {
-		setLegX(Math.abs(first.getX()-second.getX()-third.getX()));
-		setLegY(Math.abs(first.getY()-second.getY()-third.getY()));
         return ((first.getX()-second.getX()-third.getX())!=0
         		&& (first.getY()-second.getY()-third.getY())!=0);
     }

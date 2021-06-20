@@ -17,13 +17,15 @@ public class IsoscelesTriangle extends Triangle {
 
     public IsoscelesTriangle(Point first, Point second, Point third) {
         super(first, second, third);
+        super.getLegX();
+        super.getLegY();
     }
 
     @Override
     public boolean exists() {
-    	if(super.getLegX() == super.getLegY()) {
-    		return true;
-    	};
+    	if(super.getLegX() != super.getLegY()) {
+    		return false;
+    	}
        return super.exists();
     }
 }
