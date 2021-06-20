@@ -1,5 +1,8 @@
 package ru.parsentev.task_009;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * TODO: comment
  *
@@ -14,6 +17,11 @@ public class UniqueChars {
     }
 
     public int unique() {
-        throw new UnsupportedOperationException();
+    	String[] values = line.split("");
+    	Set<String> unique = new HashSet<>();
+    	for(String value: values) {
+    		unique.add(value);
+    	}
+    	return unique.size();
     }
 }
