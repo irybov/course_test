@@ -28,7 +28,7 @@ public class RightTriangle extends Triangle {
 
     @Override
     public boolean exists() {
-    	if((second.getX()+second.getY()) - (third.getX()+third.getY())!=0) {
+    	if((second.getX()+second.getY()) - (third.getX()+third.getY()) != 0) {
     		return false;
     	}
         return super.exists();

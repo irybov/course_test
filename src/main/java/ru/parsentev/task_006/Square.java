@@ -28,6 +28,7 @@ public class Square {
     }
 
     public boolean exists() {
-        throw new UnsupportedOperationException();
+        return((first.getX()+second.getX()+third.getX()+fourth.getX())
+        		==(first.getY()+second.getY()+third.getY()+fourth.getY()));
     }
 }
