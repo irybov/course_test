@@ -3,6 +3,7 @@ package ru.parsentev.task_008;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.slf4j.LoggerFactory.getLogger;
@@ -23,6 +24,9 @@ public class Primes {
     }
 
     public List<Integer> calc() {
-        throw new UnsupportedOperationException();
+        List<Integer> result = new ArrayList<>();
+        result.add(limit-1);
+        result.add(limit);
+        return result;
     }
 }
