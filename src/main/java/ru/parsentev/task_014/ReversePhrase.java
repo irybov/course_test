@@ -5,6 +5,9 @@ import org.slf4j.LoggerFactory;
 
 import static org.slf4j.LoggerFactory.getLogger;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * TODO: comment
  *
@@ -20,6 +23,14 @@ public class ReversePhrase {
     }
 
     public String reverse() {
-        throw new UnsupportedOperationException();
+        String[] words = line.split(" ");
+        StringBuilder phrase = new StringBuilder();
+        for(int i = words.length - 1; i >= 0; i--) {
+        	phrase.append(words[i]);
+        	if(i>0) {
+        		phrase.append(" ");
+        	}
+        }
+        return phrase.toString();
     }
 }
