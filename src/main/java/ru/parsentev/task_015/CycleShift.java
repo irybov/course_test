@@ -21,7 +21,7 @@ public class CycleShift {
     }
 
     public int[] shift(int position) {
-    	if(position<=1) {
+    	if(values.length==1) {
     		return values;
     	}
     	int counter = 0;
