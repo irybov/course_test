@@ -35,9 +35,8 @@ public class Pool {
         	}
         }
         for(int i = 0; i < root.size(); i++) {
-        	int current = root.get(i).seeker(8);
-        	if(max < current) {
-        		max = current;
+        	if(max < root.get(i).seeker(8)) {
+        		max = root.get(i).seeker(8);
         	}
         }        
         return max;
