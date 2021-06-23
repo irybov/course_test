@@ -32,7 +32,7 @@ public class TicTacToe {
 			}
 			result = 0;
         }
-        for(col=0; col<values[0].length; col++) {
+        for(col=0; col<values.length; col++) {
         	for(row=0; row<values.length; row++) {
     			result+=values[row][col];
     		}
@@ -49,7 +49,7 @@ public class TicTacToe {
 				return true;
 			}
 		result = 0;
-        for(col=0; col<values[0].length; col++) {
+        for(col=0; col<values.length; col++) {
         	row=(values.length-1)-col;
 			result+=values[row][col];
         }

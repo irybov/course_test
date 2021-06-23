@@ -5,6 +5,9 @@ import org.slf4j.LoggerFactory;
 
 import static org.slf4j.LoggerFactory.getLogger;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * TODO: comment
  *
@@ -21,6 +24,23 @@ public class Pool {
     }
 
     public int maxUnion() {
-        throw new UnsupportedOperationException();
+    	List<Node> root = new ArrayList<>();
+        int max = 0;
+        int row, col;
+        for(row=0; row<values.length; row++) {
+        	for(col=0; col<values[row].length; col++) {
+        		if(values[row][col]==1) {
+        			root.add(new Node(row, col, Copier.deepCopy(values)));
+        		}
+        	}
+        }
+        for(int i = 0; i < root.size(); i++) {
+        	int current = root.get(i).seeker(8);
+        	if(max < current) {
+        		max = current;
+        	}
+        }        
+        return max;
     }
+    
 }
