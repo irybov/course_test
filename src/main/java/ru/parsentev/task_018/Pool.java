@@ -30,7 +30,7 @@ public class Pool {
         for(row=0; row<values.length; row++) {
         	for(col=0; col<values[row].length; col++) {
         		if(values[row][col]==1) {
-        			root.add(new Node(row, col, Copier.deepCopy(values)));
+        			root.add(new Node(row, col, values));
         		}
         	}
         }
