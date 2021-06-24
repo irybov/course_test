@@ -29,10 +29,10 @@ public class Maze {
         Pool pool = new Pool(values);   	
         pool.maxUnion();
         
-        for(int i = 0; i < pool.root.size(); i++) {
+        for(int i = 0; i < pool.entry.size(); i++) {
         	
         }
         
-        return;
+        return pool.entry;
     }
 }

@@ -20,7 +20,7 @@ public class Pool {
 
     private final int[][] values;
     public List<Node> root;
-    private List<Point> entry;
+    public List<Point> entry;
 
     public Pool(final int[][] values) {
         this.values = values;
