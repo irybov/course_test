@@ -7,6 +7,7 @@ import static org.slf4j.LoggerFactory.getLogger;
 
 import java.util.ArrayList;
 import java.util.List;
+import ru.parsentev.task_002.Point;
 
 /**
  * TODO: comment
@@ -18,25 +19,29 @@ public class Pool {
     private static final Logger log = getLogger(Pool.class);
 
     private final int[][] values;
+    public List<Node> root;
+    private List<Point> entry;
 
     public Pool(final int[][] values) {
         this.values = values;
     }
 
     public int maxUnion() {
-    	List<Node> root = new ArrayList<>();
+    	root = new ArrayList<>();
+    	entry = new ArrayList<>();
         int max = 0;
-        int row, col;
-        for(row=0; row<values.length; row++) {
-        	for(col=0; col<values[row].length; col++) {
+
+        for(int row=0; row<values.length; row++) {
+        	for(int col=0; col<values[row].length; col++) {
         		if(values[row][col]==1) {
-        			root.add(new Node(row, col, values));
+        			entry.add(new Point(row,col));
+        			root.add(new Node(entry, values));
         		}
         	}
         }
         for(int i = 0; i < root.size(); i++) {
-        	if(max < root.get(i).seeker(8)) {
-        		max = root.get(i).seeker(8);
+        	if(max < root.get(i).starter()) {
+        		max = root.get(i).starter();
         	}
         }        
         return max;

@@ -3,6 +3,7 @@ package ru.parsentev.task_019;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.parsentev.task_002.Point;
+import ru.parsentev.task_018.Pool;
 
 import java.util.List;
 
@@ -18,12 +19,20 @@ public class Maze {
     private static final Logger log = getLogger(Maze.class);
 
     private final int[][] values;
-
+    
     public Maze(final int[][] values) {
         this.values = values;
     }
 
     public List<Point> solution(Point start, Point finish) {
-        throw new UnsupportedOperationException();
+    	
+        Pool pool = new Pool(values);   	
+        pool.maxUnion();
+        
+        for(int i = 0; i < pool.root.size(); i++) {
+        	
+        }
+        
+        return;
     }
 }
