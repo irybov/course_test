@@ -3,8 +3,9 @@ package ru.parsentev.task_019;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.parsentev.task_002.Point;
-import ru.parsentev.task_018.Pool;
+import ru.parsentev.task_018.Node;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.slf4j.LoggerFactory.getLogger;
@@ -26,13 +27,20 @@ public class Maze {
 
     public List<Point> solution(Point start, Point finish) {
     	
-        Pool pool = new Pool(values);   	
-        pool.maxUnion();
-        
-        for(int i = 0; i < pool.entry.size(); i++) {
-        	
-        }
-        
-        return pool.entry;
+    	List<Point> entry = new ArrayList<>();
+    	entry.add(start);
+    	Node node = new Node(entry, values);
+    	node.finder(entry, finish);
+    	List<Point> result = node.getPath();
+    	
+        return result;
     }
+    
+    private List<Point> min(List<List<Point>> multilist){
+    	
+    	List<Point> min = new ArrayList<>();
+    	
+    	return min;
+    }
+    
 }

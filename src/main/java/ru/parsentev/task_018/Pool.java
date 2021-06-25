@@ -19,16 +19,14 @@ public class Pool {
     private static final Logger log = getLogger(Pool.class);
 
     private final int[][] values;
-    public List<Node> root;
-    public List<Point> entry;
 
     public Pool(final int[][] values) {
         this.values = values;
     }
 
     public int maxUnion() {
-    	root = new ArrayList<>();
-    	entry = new ArrayList<>();
+    	List<Node> root = new ArrayList<>();
+    	List<Point> entry = new ArrayList<>();
         int max = 0;
 
         for(int row=0; row<values.length; row++) {

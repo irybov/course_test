@@ -18,7 +18,7 @@ import static org.junit.Assert.*;
  * @author parsentev
  * @since 28.07.2016
  */
-@Ignore
+//@Ignore
 public class MazeTest {
     @Test
     public void singleSolution() {
@@ -36,7 +36,7 @@ public class MazeTest {
                                 new Point(0, 0),
                                 new Point(1, 0),
                                 new Point(1, 1),
-                                new Point(2, 1),
+                                new Point(1, 2),
                                 new Point(2, 2)
                         )
                 )
