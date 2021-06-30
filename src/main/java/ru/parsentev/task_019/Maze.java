@@ -6,6 +6,8 @@ import ru.parsentev.task_002.Point;
 import ru.parsentev.task_018.Node;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import static org.slf4j.LoggerFactory.getLogger;
@@ -27,20 +29,14 @@ public class Maze {
 
     public List<Point> solution(Point start, Point finish) {
     	
-    	List<Point> entry = new ArrayList<>();
-    	entry.add(start);
-    	Node node = new Node(entry, values);
-    	node.finder(entry, finish);
-    	List<Point> result = node.getPath();
+    	Node node = new Node(start, values);
     	
-        return result;
+        return minimal(node.getPath(finish));
     }
     
-    private List<Point> min(List<List<Point>> multilist){
+    private List<Point> minimal(List<List<Point>> lists){
     	
-    	List<Point> min = new ArrayList<>();
-    	
-    	return min;
+    	return Collections.min(lists, Comparator.comparingInt(List::size));
     }
     
 }

@@ -25,15 +25,14 @@ public class Pool {
     }
 
     public int maxUnion() {
+    	
     	List<Node> root = new ArrayList<>();
-    	List<Point> entry = new ArrayList<>();
         int max = 0;
 
         for(int row=0; row<values.length; row++) {
         	for(int col=0; col<values[row].length; col++) {
         		if(values[row][col]==1) {
-        			entry.add(new Point(row,col));
-        			root.add(new Node(entry, values));
+        			root.add(new Node(new Point(row,col), values));
         		}
         	}
         }

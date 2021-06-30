@@ -5,6 +5,8 @@ import org.slf4j.LoggerFactory;
 
 import static org.slf4j.LoggerFactory.getLogger;
 
+import java.util.Arrays;
+
 /**
  * TODO: comment
  *
@@ -21,18 +23,19 @@ public class CycleShift {
     }
 
     public int[] shift(int position) {
-    	if(values.length==1) {
+//    	if(values.length==1) {
+    	if(values.length<=1 || position==0) {
     		return values;
     	}
-    	int counter = 0;
-    	while(counter<position) {
+//    	int counter = 0;
+//    	while(counter<position) {
         int temp = values[values.length-1];
         for(int i = values.length-1; i>0; i--) {
         	values[i] = values[i-1];
         }
         values[0] = temp;
-        counter++;
-    	}
-    	return values;
+//        counter++;
+//    	}
+    	return shift(position-1);
     }
 }
