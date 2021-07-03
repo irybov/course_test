@@ -38,4 +38,12 @@ public class CycleShift {
 //    	}
     	return shift(position-1);
     }
+    
+    public int[] rotate(int[] input) {
+    	
+    	
+    	
+    	return input;
+    }
+    
 }

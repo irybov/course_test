@@ -18,7 +18,7 @@ import static org.junit.Assert.*;
  * @author parsentev
  * @since 28.07.2016
  */
-@Ignore
+//@Ignore
 public class CashMachineTest {
     @Test
     public void unchange() {

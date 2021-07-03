@@ -33,10 +33,5 @@ public class Maze {
     	
         return node.getPath(finish);
     }
-/*    
-    private List<Point> minimal(List<List<Point>> lists){
-    	
-    	return Collections.min(lists, Comparator.comparingInt(List::size));
-    }
-*/   
+   
 }
