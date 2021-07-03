@@ -4,7 +4,6 @@ import org.slf4j.Logger;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 import static org.slf4j.LoggerFactory.getLogger;
@@ -25,33 +24,29 @@ public class CashMachine {
     }
 
     public List<List<Integer>> exchange(int note) {
-
+    	
+    	int temp = note;
     	List<List<Integer>> result = new ArrayList<List<Integer>>();
+    	
     	for(int i = 0; i < values.length; i++) {
-    		if(note == values[i]) {
-    			result.add(Collections.singletonList(values[i]));
-    		}
-    		else if(note < values[i]){
-    			continue;
-    		}
+	  		if(temp < values[i]){
+	    		continue;
+	    	}
     		else {
-    			note-=values[i];
-    			List<Integer> fiber = new ArrayList<>();
-    			fiber.add(note);
-    			result.add(fiber);
+				List<Integer> coins = new ArrayList<>();
+    			while(temp>=values[i]) {
+    				temp-=values[i];
+	    			coins.add(values[i]);
+    			}
+    			result.add(coins);
     		}
+    		temp = note;
     	}   	
     	return sorting(result);
     }
     
     private  List<List<Integer>> sorting(List<List<Integer>> result){
-/*    	
-    	Collections.sort(result, new Comparator<List>(){
-    	    public int compare(List a1, List a2) {
-    	        return a1.size() - a2.size();
-    	    }
-    	});
-*/    	
+    	
         result.sort((xs1, xs2) -> xs1.size() - xs2.size());
     	return result;
     }
