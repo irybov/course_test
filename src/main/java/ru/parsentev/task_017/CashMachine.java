@@ -35,28 +35,28 @@ public class CashMachine {
     private void combine(List<List<Integer>> results, List<Integer> coins, int[] values,
     					 								   int note, int sum, int start){
         if(sum == note){
-            List<Integer> fiber = new ArrayList<Integer>(coins);
-            results.add(fiber);
+            List<Integer> stock = new ArrayList<Integer>(coins);
+            results.add(stock);
             return;
         }
         if(sum > note) {
         	return;
         }
         
-        for(int i=start;i<values.length;i++){
+        for(int i = start; i<values.length; i++){
             coins.add(values[i]);
-            combine(results, coins, values, note, sum+values[i], i);
+            combine(results, coins, values, note, sum + values[i], i);
             coins.remove(coins.size()-1);
         }       
     }
     
-    private  List<List<Integer>> sorting(List<List<Integer>> result){
+    private  List<List<Integer>> sorting(List<List<Integer>> results){
     	
-    	for(List<Integer> numbers: result) {
-    		Collections.sort(numbers, Collections.reverseOrder());
+    	for(List<Integer> coins: results) {
+    		Collections.sort(coins, Collections.reverseOrder());
     	}    	
-        result.sort((xs1, xs2) -> xs1.size() - xs2.size());
-    	return result;
+        results.sort((xs1, xs2) -> xs1.size() - xs2.size());
+    	return results;
     }
     
 }

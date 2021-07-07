@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -30,15 +31,19 @@ public class Combine {
 
     public List<List<Integer>> generate() {
 
-    	CycleShift shifter = new CycleShift(values);
-    	List<List<Integer>> lists = new ArrayList<>();
+//    	CycleShift shifter = new CycleShift(values);
+    	List<List<Integer>> lists = new ArrayList<>();  	
     	lists.add(convertion(values));
+    	int[] result = reverse();
+    	if(values.length > 2) {
+	    	lists.add(convertion(result));
+    	}
     	
     	int counter = 0;
     	while(counter<values.length-1) {
-    	int[] result = shifter.shift(1);
-    	lists.add(convertion(result));
-    	counter++;
+	    	result = new CycleShift(result).shift(1);
+	    	lists.add(convertion(result));
+	    	counter++;
     	}
     	return lists;
     }
@@ -53,4 +58,19 @@ public class Combine {
     	
     	return converted;
     }
+    
+    private int[] reverse(){
+
+    	int[] head = Arrays.copyOfRange(values, 0, values.length/2);   	
+    	int[] tail = Arrays.copyOfRange(values, values.length/2, values.length);
+    	
+    	CycleShift shifter = new CycleShift(tail);		
+    	tail = shifter.shift(tail.length-1);
+    	
+    	int[] result = new int[head.length + tail.length];
+    	System.arraycopy(head, 0, result, 0, head.length);  
+    	System.arraycopy(tail, 0, result, head.length, tail.length);    	
+    	return result;
+    }
+    
 }
